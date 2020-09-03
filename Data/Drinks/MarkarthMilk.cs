@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// and any special instructions when making the drink. Also has the ToString() method overrided
     /// to return the name of the drink.
     /// </summary>
-    class MarkarthMilk
+    public class MarkarthMilk
     {
         private double price = 1.05;
         /// <value>

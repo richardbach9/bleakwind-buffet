@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// and size. Also has the ToString() method overrided
     /// to return the name of the side.
     /// </summary>
-    class VokunSalad
+    public class VokunSalad
     {
         private double price = 0.93;
         /// <value>

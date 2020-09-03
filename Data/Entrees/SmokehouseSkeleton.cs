@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Entree
     /// and any special instructions when making the entree. Also has the ToString() method overrided
     /// to return the name of the entree.
     /// </summary>
-    class SmokehouseSkeleton
+    public class SmokehouseSkeleton
     {
         /// <value>
         /// returns the price of the Smokehouse Skeleton

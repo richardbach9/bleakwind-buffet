@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// Represents the Dragonborn Waffle Fries side item keeping track of the price, calories, and size.
     /// Also has the ToString() method overrided to return the name of the side.
     /// </summary>
-    class DragonbornWaffleFries
+    public class DragonbornWaffleFries
     {
         private double price = 0.93;
         /// <value>

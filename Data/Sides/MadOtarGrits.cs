@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data.Sides
     /// and size. Also has the ToString() method overrided
     /// to return the name of the side.
     /// </summary>
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         private double price = 1.22;
         /// <value>

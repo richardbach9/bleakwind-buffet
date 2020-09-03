@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// Represents the Fried Miraak side item keeping track of the price, calories, and sides. 
     /// Also has the ToString() method overrided to return the name of the side.
     /// </summary>
-    class FriedMiraak
+    public class FriedMiraak
     {
         private double price = 1.78;
         /// <value>
