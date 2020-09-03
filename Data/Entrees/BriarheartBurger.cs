@@ -9,22 +9,27 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Represents the Briarheart Burger entree item keeping track of the price, calories, ingredients,
+    /// and any special instructions when making the entree. Also has the ToString() method overrided
+    /// to return the name of the entree.
+    /// </summary>
     public class BriarheartBurger
     {
-        /// <summary>
+        /// <value>
         /// returns the price of the Briarheart Burger
-        /// </summary>
+        /// </value>
         public double Price => 6.32;
 
-        /// <summary>
+        /// <value>
         /// returns the calories of the Briarheart Burger
-        /// </summary>
+        /// </value>
         public uint Calories => 743;
 
         private bool ketchup = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has ketchup
-        /// </summary>
+        /// </value>
         public bool Ketchup
         {
             get => ketchup;
@@ -32,9 +37,9 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         private bool bun = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has a bun
-        /// </summary>
+        /// </value>
         public bool Bun
         {
             get => bun;
@@ -42,35 +47,35 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         private bool mustard = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has mustard
-        /// </summary>
+        /// </value>
         public bool Mustard
         {
             get => mustard;
             set => mustard = value;
         }
         private bool pickle = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has pickles
-        /// </summary>
+        /// </value>
         public bool Pickle
         {
             get => pickle;
             set => pickle = value;
         }
         private bool cheese = true;
-        /// <summary>
+        /// <value>
         /// set and returns the bool represnting whether or not the burger has cheese
-        /// </summary>
+        /// </value>
         public bool Cheese
         {
             get => cheese;
             set => cheese = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the burger and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -87,7 +92,7 @@ namespace BleakwindBuffet.Data.Entree
         /// <summary>
         /// returns a string containing the name of the burger
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the name of the burger</returns>
         public override string ToString()
         {
             return "Briarheart Burger";

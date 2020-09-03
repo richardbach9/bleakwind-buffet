@@ -9,22 +9,27 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Represents the Philly Poacher entree item keeping track of the price, calories, ingredients,
+    /// and any special instructions when making the entree. Also has the ToString() method overrided
+    /// to return the name of the entree.
+    /// </summary>
     class PhillyPoacher
     {
-        /// <summary>
+        /// <value>
         /// returns the price of the Philly Poacher
-        /// </summary>
+        /// </value>
         public double Price => 7.23;
 
-        /// <summary>
+        /// <value>
         /// returns the calories of the Philly Poacher
-        /// </summary>
+        /// </value>
         public uint Calories => 784;
 
         private bool sirloin = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the sandwich comes with sirloin
-        /// </summary>
+        /// </value>
         public bool Sirloin
         {
             get => sirloin;
@@ -32,9 +37,9 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         private bool onions = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the sandwich comes with onions
-        /// </summary>
+        /// </value>
         public bool Onions
         {
             get => onions;
@@ -42,17 +47,17 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         private bool roll = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the sandwich comes with a roll
-        /// </summary>
+        /// </value>
         public bool Roll
         {
             get => roll;
             set => roll = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the sandwich and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -67,7 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// returns a string containing the name of the order
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the name of the order</returns>
         public override string ToString()
         {
             return "Philly Poacher";

@@ -9,22 +9,27 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Represents the Thalmor Triple entree item keeping track of the price, calories, ingredients,
+    /// and any special instructions when making the entree. Also has the ToString() method overrided
+    /// to return the name of the entree.
+    /// </summary>
     public class ThalmorTriple
     {
-        /// <summary>
+        /// <value>
         /// returns the price of the Thalmor Triple
-        /// </summary>
+        /// </value>
         public double Price => 8.32;
 
-        /// <summary>
+        /// <value>
         /// returns the calories of the Thalmor Triple
-        /// </summary>
+        /// </value>
         public uint Calories => 943;
 
         private bool ketchup = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has ketchup
-        /// </summary>
+        /// </value>
         public bool Ketchup
         {
             get => ketchup;
@@ -32,9 +37,9 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         private bool bun = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has a bun
-        /// </summary>
+        /// </value>
         public bool Bun
         {
             get => bun;
@@ -42,36 +47,36 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         private bool mustard = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has mustard
-        /// </summary>
+        /// </value>
         public bool Mustard
         {
             get => mustard;
             set => mustard = value;
         }
         private bool pickle = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has pickles
-        /// </summary>
+        /// </value>
         public bool Pickle
         {
             get => pickle;
             set => pickle = value;
         }
         private bool cheese = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has cheese
-        /// </summary>
+        /// </value>
         public bool Cheese
         {
             get => cheese;
             set => cheese = value;
         }
         private bool tomato = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has tomato
-        /// </summary>
+        /// </value>
         public bool Tomato
         {
             get => tomato;
@@ -79,44 +84,44 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         private bool lettuce = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has lettuce
-        /// </summary>
+        /// </value>
         public bool Lettuce
         {
             get => lettuce;
             set => lettuce = value;
         }
         private bool mayo = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has mayo
-        /// </summary>
+        /// </value>
         public bool Mayo
         {
             get => mayo;
             set => mayo = value;
         }
         private bool bacon = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has bacon
-        /// </summary>
+        /// </value>
         public bool Bacon
         {
             get => bacon;
             set => bacon = value;
         }
         private bool egg = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the burger has egg
-        /// </summary>
+        /// </value>
         public bool Egg
         {
             get => egg;
             set => egg = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the burger and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -138,7 +143,7 @@ namespace BleakwindBuffet.Data.Entree
         /// <summary>
         /// returns a string containing the name of the burger
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the name of the burger</returns>
         public override string ToString()
         {
             return "Thalmor Triple";

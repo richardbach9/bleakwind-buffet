@@ -9,21 +9,26 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Represents the Garden Orc Omelette entree item keeping track of the price, calories,
+    /// and any special instructions when making the entree. Also has the ToString() method overrided
+    /// to return the name of the entree.
+    /// </summary>
     class ThugsTBone
     {
-        /// <summary>
+        /// <value>
         /// returns the price of the Thugs T-Bone
-        /// </summary>
+        /// </value>
         public double Price => 6.44;
 
-        /// <summary>
+        /// <value>
         /// returns the calories of the Thugs T-Bone
-        /// </summary>
+        /// </value>
         public uint Calories => 982;
 
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the steak and returns it. It will always be empty
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -35,7 +40,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// returns a string containing the name of the order
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the name of the order</returns>
         public override string ToString()
         {
             return "Thugs T-Bone";

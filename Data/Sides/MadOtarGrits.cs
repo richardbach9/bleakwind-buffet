@@ -10,12 +10,17 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// Represents the Mad Otar Grits side item keeping track of the price, calories,
+    /// and size. Also has the ToString() method overrided
+    /// to return the name of the side.
+    /// </summary>
     class MadOtarGrits
     {
         private double price = 1.22;
-        /// <summary>
+        /// <value>
         /// returns the price of the Mad Otar Grits
-        /// </summary>
+        /// </value>
         public double Price
         {
             get => price;
@@ -23,18 +28,18 @@ namespace BleakwindBuffet.Data.Sides
         }
 
         private uint calories = 105;
-        /// <summary>
+        /// <value>
         /// returns the calories of the Mad Otar Grits
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get => calories;
             set => calories = value;
         }
         private Size size = Size.Small;
-        /// <summary>
+        /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the side
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get => size;
@@ -62,7 +67,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// overrides ToString() and returns the size and name of the side
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the size and name of the side</returns>
         public override string ToString()
         {
             string sizeReturn = "";

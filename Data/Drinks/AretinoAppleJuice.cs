@@ -9,21 +9,26 @@ using System.Text;
 using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Represents the Aretino Apple Juice drink item keeping track of the price, calories, ingredients, size,
+    /// and any special instructions when making the drink. Also has the ToString() method overrided
+    /// to return the name of the drink.
+    /// </summary>
     class AretinoAppleJuice
     {
         private double price = 0.62;
-        /// <summary>
+        /// <value>
         /// sets and returns the price of the Aretino Apple Juice
-        /// </summary>
+        /// </value>
         public double Price
         {
             get => price;
             set => price = value;
         }
         private uint calories = 44;
-        /// <summary>
+        /// <value>
         /// sets and returns the calories of the Aretino Apple Juice
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get => calories;
@@ -31,17 +36,17 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         private bool ice = false;
-        /// <summary>
+        /// <value>
         /// returns a bool representing whether or not the drink comes with ice
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get => ice;
             set => ice = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the drink and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -53,9 +58,9 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         private Size size = Size.Small;
-        /// <summary>
+        /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the drink
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get => size;
@@ -82,7 +87,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// overrides ToString() and returns the size and name of the drink
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the suze and name of the drink</returns>
         public override string ToString()
         {
             string sizeReturn = "";

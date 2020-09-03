@@ -9,22 +9,27 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// Represents the Garden Orc Omelette entree item keeping track of the price, calories, ingredients,
+    /// and any special instructions when making the entree. Also has the ToString() method overrided
+    /// to return the name of the entree.
+    /// </summary>
     class GardenOrcOmelette
     {
-        /// <summary>
+        /// <value>
         /// returns the price of the Garden Orc Omelette
-        /// </summary>
+        /// </value>
         public double Price => 4.57;
 
-        /// <summary>
+        /// <value>
         /// returns the calories of the Garden Orc Omelette
-        /// </summary>
+        /// </value>
         public uint Calories => 404;
 
         private bool broccoli = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the dish comes with broccoli
-        /// </summary>
+        /// </value>
         public bool Broccoli
         {
             get => broccoli;
@@ -32,9 +37,9 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         private bool mushrooms = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the dish comes with mushrooms
-        /// </summary>
+        /// </value>
         public bool Mushrooms
         {
             get => mushrooms;
@@ -42,26 +47,26 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         private bool tomato = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the dish comes with tomatos
-        /// </summary>
+        /// </value>
         public bool Tomato
         {
             get => tomato;
             set => tomato = value;
         }
         private bool cheddar = true;
-        /// <summary>
+        /// <value>
         /// sets and returns the bool representing whether or not the order includes cheddar
-        /// </summary>
+        /// </value>
         public bool Cheddar
         {
             get => cheddar;
             set => cheddar = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the dish and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -77,7 +82,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// returns a string containing the name of the order
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the name of the order</returns>
         public override string ToString()
         {
             return "Garden Orc Omelette";

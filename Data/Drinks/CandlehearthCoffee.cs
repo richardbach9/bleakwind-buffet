@@ -10,21 +10,26 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Represents the Candlehearth Coffee drink item keeping track of the price, calories, ice, cream, decaf, size,
+    /// and any special instructions when making the drink. Also has the ToString() method overrided
+    /// to return the name of the drink.
+    /// </summary>
     class CandlehearthCoffee
     {
         private double price = 0.75;
-        /// <summary>
+        /// <value>
         /// sets and returns the price of the Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public double Price
         {
             get => price;
             set => price = value;
         }
         private uint calories = 7;
-        /// <summary>
+        /// <value>
         /// sets and returns the calories of the Candlehearth Coffee
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get => calories;
@@ -32,35 +37,35 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         private bool ice = false;
-        /// <summary>
+        /// <value>
         /// returns a bool representing whether or not the drink comes with ice
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get => ice;
             set => ice = value;
         }
         private bool roomforcream = false;
-        /// <summary>
+        /// <value>
         /// returns a bool representing whether or not the drink comes will cream
-        /// </summary>
+        /// </value>
         public bool RoomForCream
         {
             get => roomforcream;
             set => roomforcream = value;
         }
         private bool decaf = false;
-        /// <summary>
+        /// <value>
         /// returns a bool representing whether or not the drink will be decaf
-        /// </summary>
+        /// </value>
         public bool Decaf
         {
             get => decaf;
             set => decaf = value;
         }
-        /// <summary>
+        /// <value>
         /// creates a list of special instruction for making the drink and returns it
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -73,9 +78,9 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         private Size size = Size.Small;
-        /// <summary>
+        /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the drink
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get => size;
@@ -102,7 +107,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// overrides ToString() and returns the size, caffination, name of the drink
         /// </summary>
-        /// <returns></returns>
+        /// <returns>the size, caffination, name of the drink</returns>
         public override string ToString()
         {
             string sizeReturn = "";
