@@ -87,7 +87,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// overrides ToString() and returns the size and name of the drink
         /// </summary>
-        /// <returns>the suze and name of the drink</returns>
+        /// <returns>the size and name of the drink</returns>
         public override string ToString()
         {
             string sizeReturn = "";

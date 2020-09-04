@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakwindBuffet.Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Represents the Briarheart Burger entree item keeping track of the price, calories, ingredients,

@@ -62,7 +62,17 @@ namespace BleakwindBuffet.Data.Sides
                 size = value;
             }
         }
-
+        /// <value>
+        /// creates a list of special instruction and returns it
+        /// </value>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+                return instructions;
+            }
+        }
         /// <summary>
         /// overrides ToString() and returns the size and name of the side
         /// </summary>

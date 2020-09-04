@@ -85,7 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
                     sizeReturn += "Small ";
                     break;
             }
-            sizeReturn += "Candlehearth Coffee";
+            sizeReturn += "Warrior Water";
             return sizeReturn;
         }
     }
