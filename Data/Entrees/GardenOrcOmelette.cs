@@ -14,17 +14,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// and any special instructions when making the entree. Also has the ToString() method overrided
     /// to return the name of the entree.
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         /// <value>
         /// returns the price of the Garden Orc Omelette
         /// </value>
-        public double Price => 4.57;
+        public override double Price => 4.57;
 
         /// <value>
         /// returns the calories of the Garden Orc Omelette
         /// </value>
-        public uint Calories => 404;
+        public override uint Calories => 404;
 
         private bool broccoli = true;
         /// <value>
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// creates a list of special instruction for making the dish and returns it
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

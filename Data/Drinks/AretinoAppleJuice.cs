@@ -14,13 +14,13 @@ namespace BleakwindBuffet.Data.Drinks
     /// and any special instructions when making the drink. Also has the ToString() method overrided
     /// to return the name of the drink.
     /// </summary>
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink, IOrderItem
     {
         private double price = 0.62;
         /// <value>
         /// sets and returns the price of the Aretino Apple Juice
         /// </value>
-        public double Price
+        public override double Price
         {
             get => price;
             set => price = value;
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// sets and returns the calories of the Aretino Apple Juice
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get => calories;
             set => calories = value;
@@ -47,7 +47,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// creates a list of special instruction for making the drink and returns it
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -61,7 +61,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the drink
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get => size;
             set

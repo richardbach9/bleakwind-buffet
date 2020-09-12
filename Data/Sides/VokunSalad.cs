@@ -14,13 +14,13 @@ namespace BleakwindBuffet.Data.Sides
     /// and size. Also has the ToString() method overrided
     /// to return the name of the side.
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad : Side, IOrderItem
     {
         private double price = 0.93;
         /// <value>
         /// returns the price of the Vokun Salad
         /// </value>
-        public double Price
+        public override double Price
         {
             get => price;
             set => price = value;
@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// returns the calories of the Vokun Salad
         /// </value>
-        public uint Calories
+        public override  uint Calories
         {
             get => calories;
             set => calories = value;
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the side
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get => size;
             set
@@ -65,7 +65,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// creates a list of special instruction and returns it
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

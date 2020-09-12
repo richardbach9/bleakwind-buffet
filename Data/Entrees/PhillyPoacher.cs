@@ -14,17 +14,17 @@ namespace BleakwindBuffet.Data.Entrees
     /// and any special instructions when making the entree. Also has the ToString() method overrided
     /// to return the name of the entree.
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : Entree, IOrderItem
     {
         /// <value>
         /// returns the price of the Philly Poacher
         /// </value>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <value>
         /// returns the calories of the Philly Poacher
         /// </value>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         private bool sirloin = true;
         /// <value>
@@ -58,7 +58,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// creates a list of special instruction for making the sandwich and returns it
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
