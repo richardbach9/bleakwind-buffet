@@ -6,7 +6,7 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
@@ -16,6 +16,57 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             BriarheartBurger bb = new BriarheartBurger();
             Assert.IsAssignableFrom<IOrderItem>(bb);
+        }
+        [Fact]
+        public void KetchupChangeShouldTriggerPropertyChange()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.PropertyChanged(bb, "Ketchup", () =>
+            {
+                bb.Ketchup = false;
+            });
+        }
+        [Fact]
+        public void BunChangeShouldTriggerPropertyChange()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.PropertyChanged(bb, "Bun", () =>
+            {
+                bb.Bun = false;
+            });
+        }
+        [Fact]
+        public void MustardChangeShouldTriggerPropertyChange()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.PropertyChanged(bb, "Mustard", () =>
+            {
+                bb.Mustard = false;
+            });
+        }
+        [Fact]
+        public void PickleChangeShouldTriggerPropertyChange()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.PropertyChanged(bb, "Pickle", () =>
+            {
+                bb.Pickle = false;
+            });
+        }
+        [Fact]
+        public void CheeseChangeShouldTriggerPropertyChange()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.PropertyChanged(bb, "Cheese", () =>
+            {
+                bb.Cheese = false;
+            });
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            BriarheartBurger bb = new BriarheartBurger();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(bb);
         }
         [Fact]
         public void ShouldBeAnEntree()

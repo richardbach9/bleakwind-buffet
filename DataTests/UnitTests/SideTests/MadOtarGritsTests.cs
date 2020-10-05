@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
@@ -17,6 +18,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits mog = new MadOtarGrits();
             Assert.IsAssignableFrom<Side>(mog);
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mog);
+        }
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChange()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Size", () =>
+            {
+                mog.Size = Size.Small;
+            });
+        }
+        [Fact]
+        public void PriceChangeShouldTriggerPropertyChange()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Price = 0;
+            });
+        }
+        [Fact]
+        public void CaloriesChangeShouldTriggerPropertyChange()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Calories = 0;
+            });
         }
         [Fact]
         public void ShouldBeSmallByDefault()

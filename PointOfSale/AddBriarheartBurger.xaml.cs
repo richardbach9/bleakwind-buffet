@@ -31,6 +31,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new BriarheartBurger();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -41,17 +42,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            BriarheartBurger bb = new BriarheartBurger();
-            if (checkKetchup.IsChecked == true) bb.Ketchup = true;
-            else bb.Ketchup = false;
-            if (checkBun.IsChecked == true) bb.Bun = true;
-            else bb.Bun = false;
-            if (checkMustard.IsChecked == true) bb.Mustard = true;
-            else bb.Mustard = false;
-            if (checkPickle.IsChecked == true) bb.Pickle = true;
-            else bb.Pickle = false;
-            if (checkCheese.IsChecked == true) bb.Cheese = true;
-            else bb.Cheese = false;
+            BriarheartBurger bb = DataContext as BriarheartBurger;
             order.Add(bb);
             orderList.Totals();
             orderList.Order();

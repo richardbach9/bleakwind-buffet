@@ -9,7 +9,7 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class SailorSodaTests
@@ -19,6 +19,57 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             SailorSoda ss = new SailorSoda();
             Assert.IsAssignableFrom<IOrderItem>(ss);
+        }
+        [Fact]
+        public void PriceChangeShouldTriggerPropertyChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Price", () =>
+            {
+                ss.Price = 1;
+            });
+        }
+        [Fact]
+        public void CaloriesChangeShouldTriggerPropertyChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Calories", () =>
+            {
+                ss.Calories = 1;
+            });
+        }
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Size", () =>
+            {
+                ss.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void IceChangeShouldTriggerPropertyChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Ice", () =>
+            {
+                ss.Ice = false;
+            });
+        }
+        [Fact]
+        public void SodaFlavorChangeShouldTriggerPropertyChange()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.PropertyChanged(ss, "Soda Flavor", () =>
+            {
+                ss.SodaFlavor = SodaFlavor.Blackberry;
+            });
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            SailorSoda ss = new SailorSoda();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
         }
         [Fact]
         public void ShouldBeADrink()

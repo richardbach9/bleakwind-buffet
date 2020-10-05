@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace PointOfSale
 {
     /// <summary>
@@ -25,6 +26,7 @@ namespace PointOfSale
         List<IOrderItem> order;
         Border b;
         OrderList orderList;
+
         /// <summary>
         /// Constructor for the AddAretinoAppleJuice user control
         /// </summary>
@@ -37,6 +39,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new AretinoAppleJuice();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -47,12 +50,10 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            AretinoAppleJuice aaj = DataContext as AretinoAppleJuice;
             if (radioSmall.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            if (checkIce.IsChecked == true) aaj.Ice = true;
-            else aaj.Ice = false;
             order.Add(aaj);
             orderList.Totals();
             orderList.Order();

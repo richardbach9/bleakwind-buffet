@@ -29,14 +29,14 @@
             <RowDefinition Height="16"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" FontSize="15" >Customize Double Draugr</TextBlock>
-        <CheckBox IsChecked="True" Name="checkKetchup" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="20" >Ketchup</CheckBox>
-        <CheckBox IsChecked="True" Name="checkBun" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="20" >Bun</CheckBox>
-        <CheckBox IsChecked="True" Name="checkMustard" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="20" >Mustard</CheckBox>
-        <CheckBox IsChecked="True" Name="checkPickle" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="20" >Pickle</CheckBox>
-        <CheckBox IsChecked="True" Name="checkCheese" Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="20" >Cheese</CheckBox>
-        <CheckBox IsChecked="True" Name="checkTomato" Grid.Row="8" Grid.Column="1" Foreground="White" FontSize="20" >Tomato</CheckBox>
-        <CheckBox IsChecked="True" Name="checkLettuce" Grid.Row="9" Grid.Column="1" Foreground="White" FontSize="20" >Lettuce</CheckBox>
-        <CheckBox IsChecked="True" Name="checkMayo" Grid.Row="10" Grid.Column="1" Foreground="White" FontSize="20" >Mayo</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Ketchup}" Name="checkKetchup" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="20" >Ketchup</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Bun}" Name="checkBun" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="20" >Bun</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mustard}" Name="checkMustard" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="20" >Mustard</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Pickle}" Name="checkPickle" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="20" >Pickle</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Cheese}" Name="checkCheese" Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="20" >Cheese</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Tomato}" Name="checkTomato" Grid.Row="8" Grid.Column="1" Foreground="White" FontSize="20" >Tomato</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Lettuce}" Name="checkLettuce" Grid.Row="9" Grid.Column="1" Foreground="White" FontSize="20" >Lettuce</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mayo}" Name="checkMayo" Grid.Row="10" Grid.Column="1" Foreground="White" FontSize="20" >Mayo</CheckBox>
         <Button Click ="Cancel" Name="buttonCancel" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="1" Margin="16,5">Cancel</Button>
         <Button Click ="Done" Name="buttonDone" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="3" Height="50" Width="175">Done</Button>
     </Grid>

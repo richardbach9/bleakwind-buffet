@@ -31,6 +31,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new MarkarthMilk();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -41,12 +42,10 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            MarkarthMilk mm = new MarkarthMilk();
+            MarkarthMilk mm = DataContext as MarkarthMilk;
             if (radioSmall.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            if (checkIce.IsChecked == true) mm.Ice = true;
-            else mm.Ice = false;
             order.Add(mm);
             orderList.Totals();
             orderList.Order();

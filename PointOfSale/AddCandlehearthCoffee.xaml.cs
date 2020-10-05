@@ -31,6 +31,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new CandlehearthCoffee();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -41,16 +42,10 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            CandlehearthCoffee cc = new CandlehearthCoffee();
+            CandlehearthCoffee cc = DataContext as CandlehearthCoffee;
             if (radioSmall.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            if (checkIce.IsChecked == true) cc.Ice = true;
-            else cc.Ice = false;
-            if (checkRoomForCream.IsChecked == true) cc.RoomForCream = true;
-            else cc.RoomForCream = false;
-            if (checkDecaf.IsChecked == true) cc.Decaf = true;
-            else cc.Decaf = false;
             order.Add(cc);
             orderList.Totals();
             orderList.Order();

@@ -4,7 +4,7 @@
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
 using Xunit;
-
+using System.ComponentModel;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
@@ -18,11 +18,54 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             Assert.IsAssignableFrom<IOrderItem>(ss);
         }
         [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
+        }
+        [Fact]
+        public void SausageLinkChangeShouldTriggerPropertyChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Sausage Link", () =>
+            {
+                ss.SausageLink = false;
+            });
+        }
+        [Fact]
+        public void EggChangeShouldTriggerPropertyChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = false;
+            });
+        }
+        [Fact]
+        public void HashBrownChangeShouldTriggerPropertyChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Hash Browns", () =>
+            {
+                ss.HashBrowns = false;
+            });
+        }
+        [Fact]
+        public void PancakeChangeShouldTriggerPropertyChange()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = false;
+            });
+        }
+        [Fact]
         public void ShouldBeAnEntree()
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.IsAssignableFrom<Entree>(ss);
         }
+
         [Fact]
         public void ShouldIncludeSausageByDefault()
         {

@@ -5,6 +5,7 @@ using System.Text;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
@@ -16,10 +17,52 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.IsAssignableFrom<IOrderItem>(ww);
         }
         [Fact]
+        public void PriceChangeShouldTriggerPropertyChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Price", () =>
+            {
+                ww.Price = 0;
+            });
+        }
+        [Fact]
+        public void CaloriesChangeShouldTriggerPropertyChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Calories", () =>
+            {
+                ww.Calories = 1;
+            });
+        }
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Size", () =>
+            {
+                ww.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void IceChangeShouldTriggerPropertyChange()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.PropertyChanged(ww, "Ice", () =>
+            {
+                ww.Ice = false;
+            });
+        }
+        [Fact]
         public void ShouldBeADrink()
         {
             WarriorWater ww = new WarriorWater();
             Assert.IsAssignableFrom<Drink>(ww);
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ww);
         }
         [Fact]
         public void ShouldIncludeIceByDefault()

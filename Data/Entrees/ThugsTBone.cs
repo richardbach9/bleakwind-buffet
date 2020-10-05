@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -37,6 +38,9 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// returns a string containing the name of the order
         /// </summary>

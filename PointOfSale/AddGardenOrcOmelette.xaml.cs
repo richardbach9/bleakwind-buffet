@@ -30,6 +30,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new GardenOrcOmelette();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -40,15 +41,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            GardenOrcOmelette goo = new GardenOrcOmelette();
-            if (checkBroccoli.IsChecked == true) goo.Broccoli = true;
-            else goo.Broccoli = false;
-            if (checkMushrooms.IsChecked == true) goo.Mushrooms = true;
-            else goo.Broccoli = false;
-            if (checkTomato.IsChecked == true) goo.Tomato = true;
-            else goo.Tomato = false;
-            if (checkCheddar.IsChecked == true) goo.Cheddar = true;
-            else goo.Cheddar = false;
+            GardenOrcOmelette goo = DataContext as GardenOrcOmelette;
             order.Add(goo);
             orderList.Totals();
             orderList.Order();

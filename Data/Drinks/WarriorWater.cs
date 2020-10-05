@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 namespace BleakwindBuffet.Data.Drinks
@@ -23,7 +24,11 @@ namespace BleakwindBuffet.Data.Drinks
         public override double Price
         {
             get => price;
-            set => price = value;
+            set
+            {
+                price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
         }
         private uint calories = 0;
         /// <value>
@@ -32,7 +37,11 @@ namespace BleakwindBuffet.Data.Drinks
         public override uint Calories
         {
             get => calories;
-            set => calories = value;
+            set
+            {
+                calories = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         private bool ice = true;
@@ -42,7 +51,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
         /// <value>
         /// creates a list of special instruction for making the drink and returns it
@@ -58,13 +71,20 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         private Size size = Size.Small;
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the drink
         /// </value>
         public override Size Size
         {
             get => size;
-            set => size = value;
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
         }
         /// <summary>
         /// overrides ToString() and returns the size, caffination, name of the drink

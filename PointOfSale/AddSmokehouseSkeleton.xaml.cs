@@ -30,6 +30,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new SmokehouseSkeleton();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -40,15 +41,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            SmokehouseSkeleton ss = new SmokehouseSkeleton();
-            if (checkSausageLink.IsChecked == true) ss.SausageLink = true;
-            else ss.SausageLink = false;
-            if (checkEgg.IsChecked == true) ss.Egg = true;
-            else ss.Egg = false;
-            if (checkHashBrowns.IsChecked == true) ss.HashBrowns = true;
-            else ss.HashBrowns = false;
-            if (checkPancakes.IsChecked == true) ss.HashBrowns = true;
-            else ss.HashBrowns = false;
+            SmokehouseSkeleton ss = DataContext as SmokehouseSkeleton;
             order.Add(ss);
             orderList.Totals();
             orderList.Order();

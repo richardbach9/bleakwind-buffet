@@ -31,12 +31,12 @@
         <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" FontSize="15" >Customize Aretino Apple Juice</TextBlock>
         <GroupBox Grid.Column="1" Grid.Row="3" Grid.RowSpan="3">
             <StackPanel Margin="10">
-                <RadioButton IsChecked="True" Name="radioSmall" Foreground="White" FontSize="20" >Small</RadioButton>
+                <RadioButton Name="radioSmall" Foreground="White" FontSize="20" >Small</RadioButton>
                 <RadioButton Name="radioMedium" Foreground="White" FontSize="20" >Medium</RadioButton>
                 <RadioButton Name="radioLarge" Foreground="White" FontSize="20" >Large</RadioButton>
             </StackPanel>
         </GroupBox>
-        <CheckBox IsChecked="False" Name="checkIce" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="20" >Ice</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Ice}" Name="checkIce" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="20" >Ice</CheckBox>
         <Button Click ="Cancel" Name="buttonCancel" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="1" Margin="16,5">Cancel</Button>
         <Button Click ="Done" Name="buttonDone" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="3" Margin="16,5">Done</Button>
     </Grid>

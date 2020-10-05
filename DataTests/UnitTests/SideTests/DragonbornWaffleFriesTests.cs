@@ -4,7 +4,7 @@
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
 using Xunit;
-
+using System.ComponentModel;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
@@ -17,6 +17,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
             Assert.IsAssignableFrom<IOrderItem>(dbwf);
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dbwf);
+        }
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChange()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dbwf, "Size", () =>
+            {
+                dbwf.Size = Size.Small;
+            });
+        }
+        [Fact]
+        public void PriceChangeShouldTriggerPropertyChange()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dbwf, "Price", () =>
+            {
+                dbwf.Price = 0;
+            });
+        }
+        [Fact]
+        public void CalorieChangeShouldTriggerPropertyChange()
+        {
+            DragonbornWaffleFries dbwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dbwf, "Calories", () =>
+            {
+                dbwf.Calories = 0;
+            });
         }
         [Fact]
         public void ShouldBeASide()

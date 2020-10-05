@@ -6,7 +6,7 @@
 using Xunit;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
@@ -16,6 +16,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             PhillyPoacher pp = new PhillyPoacher();
             Assert.IsAssignableFrom<IOrderItem>(pp);
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pp);
+        }
+        [Fact]
+        public void SirloinChangeShouldTriggerPropertyChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Sirloin", () =>
+            {
+                pp.Sirloin = false;
+            });
+        }
+        [Fact]
+        public void RollChangeShouldTriggerPropertyChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Roll", () =>
+            {
+                pp.Roll = false;
+            });
+        }
+        [Fact]
+        public void OnionsChangeShouldTriggerPropertyChange()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.PropertyChanged(pp, "Onions", () =>
+            {
+                pp.Onions = false;
+            });
         }
         [Fact]
         public void ShouldBeAnEntree()

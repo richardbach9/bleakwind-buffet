@@ -30,6 +30,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new ThalmorTriple();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -40,21 +41,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            ThalmorTriple tt = new ThalmorTriple();
-            if (checkKetchup.IsChecked == true) tt.Ketchup = true;
-            else tt.Ketchup = false;
-            if (checkBun.IsChecked == true) tt.Bun = true;
-            else tt.Bun = false;
-            if (checkMustard.IsChecked == true) tt.Mustard = true;
-            else tt.Mustard = false;
-            if (checkPickle.IsChecked == true) tt.Pickle = true;
-            else tt.Pickle = false;
-            if (checkTomato.IsChecked == true) tt.Tomato = true;
-            else tt.Tomato = false;
-            if (checkLettuce.IsChecked == true) tt.Lettuce = true;
-            else tt.Lettuce = false;
-            if (checkMayo.IsChecked == true) tt.Mayo = true;
-            else tt.Mayo = false;
+            ThalmorTriple tt = DataContext as ThalmorTriple;
             order.Add(tt);
             orderList.Totals();
             orderList.Order();

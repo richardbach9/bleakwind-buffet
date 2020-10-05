@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -23,7 +24,11 @@ namespace BleakwindBuffet.Data.Sides
         public override double Price
         {
             get => price;
-            set => price = value;
+            set
+            {
+                price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
         }
 
         private uint calories = 41;
@@ -33,9 +38,16 @@ namespace BleakwindBuffet.Data.Sides
         public override uint Calories
         {
             get => calories;
-            set => calories = value;
+            set
+            {
+                calories = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
         private Size size = Size.Small;
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// sets the size, price, and calories to their corresponding values given the size taken in. return the size of the side
         /// </value>
@@ -60,6 +72,7 @@ namespace BleakwindBuffet.Data.Sides
                     Calories = 100;
                 }
                 size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
             }
         }
         /// <value>

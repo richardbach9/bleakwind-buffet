@@ -31,6 +31,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new SailorSoda();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -41,7 +42,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            SailorSoda ss = new SailorSoda();
+            SailorSoda ss = DataContext as SailorSoda;
             if (radioBlackBerry.IsChecked == true) ss.SodaFlavor = SodaFlavor.Blackberry;
             else if (radioCherry.IsChecked == true) ss.SodaFlavor = SodaFlavor.Cherry;
             else if (radioGrapefruit.IsChecked == true) ss.SodaFlavor = SodaFlavor.Grapefruit;
@@ -51,8 +52,6 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            if (checkIce.IsChecked == true) ss.Ice = true;
-            else ss.Ice = false;
             order.Add(ss);
             orderList.Totals();
             orderList.Order();

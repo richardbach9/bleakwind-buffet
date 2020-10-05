@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -33,7 +34,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get => sirloin;
-            set => sirloin = value;
+            set
+            {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
         private bool onions = true;
@@ -43,17 +48,28 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onions
         {
             get => onions;
-            set => onions = value;
+            set
+            {
+                onions = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onions"));
+            }
         }
 
         private bool roll = true;
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// sets and returns the bool representing whether or not the sandwich comes with a roll
         /// </value>
         public bool Roll
         {
             get => roll;
-            set => roll = value;
+            set
+            {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
         /// <value>
         /// creates a list of special instruction for making the sandwich and returns it

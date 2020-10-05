@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// A base class representing the side items
     /// </summary>
-    public abstract class Side
+    public abstract class Side: INotifyPropertyChanged
     {
         /// <summary>
         /// Represents the size of the side
@@ -27,5 +27,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Represents the special instructions for the side
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

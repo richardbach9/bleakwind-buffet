@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// An abstract class serving as a base class for all entree classes
     /// </summary>
-    public abstract class Entree
+    public abstract class Entree: INotifyPropertyChanged
     {
         /// <summary>
         /// Represents the price of the entree
@@ -23,5 +23,6 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

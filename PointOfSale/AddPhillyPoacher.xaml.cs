@@ -30,6 +30,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new PhillyPoacher();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -40,13 +41,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            PhillyPoacher pp = new PhillyPoacher();
-            if (checkSirloin.IsChecked == true) pp.Sirloin = true;
-            else pp.Sirloin = false;
-            if (checkOnions.IsChecked == true) pp.Onions = true;
-            else pp.Onions = false;
-            if (checkRoll.IsChecked == true) pp.Roll = true;
-            else pp.Roll = false;
+            PhillyPoacher pp = DataContext as PhillyPoacher;
             order.Add(pp);
             orderList.Totals();
             orderList.Order();

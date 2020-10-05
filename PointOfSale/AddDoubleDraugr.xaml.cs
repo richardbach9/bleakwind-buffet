@@ -30,6 +30,7 @@ namespace PointOfSale
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new DoubleDraugr();
         }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
@@ -40,21 +41,7 @@ namespace PointOfSale
         /// <param name="e">Reference</param>
         void Done(object sender, RoutedEventArgs e)
         {
-            DoubleDraugr dd = new DoubleDraugr();
-            if (checkKetchup.IsChecked == true) dd.Ketchup = true;
-            else dd.Ketchup = false;
-            if (checkBun.IsChecked == true) dd.Bun = true;
-            else dd.Bun = false;
-            if (checkMustard.IsChecked == true) dd.Mustard = true;
-            else dd.Mustard = false;
-            if (checkPickle.IsChecked == true) dd.Pickle = true;
-            else dd.Pickle = false;
-            if (checkTomato.IsChecked == true) dd.Tomato = true;
-            else dd.Tomato = false;
-            if (checkLettuce.IsChecked == true) dd.Lettuce = true;
-            else dd.Lettuce = false;
-            if (checkMayo.IsChecked == true) dd.Mayo = true;
-            else dd.Mayo = false;
+            DoubleDraugr dd = DataContext as DoubleDraugr;
             order.Add(dd);
             orderList.Totals();
             orderList.Order();

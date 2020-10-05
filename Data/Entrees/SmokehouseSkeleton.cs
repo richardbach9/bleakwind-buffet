@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -33,7 +34,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get => sausageLink;
-            set => sausageLink = value;
+            set
+            {
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sausage Link"));
+            }
         }
 
         private bool egg = true;
@@ -43,7 +48,11 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get => egg;
-            set => egg = value;
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         private bool hashBrowns = true;
@@ -53,16 +62,28 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get => hashBrowns;
-            set => hashBrowns = value;
+            set
+            {
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hash Browns"));
+            }
+
         }
         private bool pancake = true;
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <value>
         /// sets and returns the bool representing whether or not the order includes pancakes
         /// </value>
         public bool Pancake
         {
             get => pancake;
-            set => pancake = value;
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
         /// <value>
         /// creates a list of special instruction for making the dish and returns it

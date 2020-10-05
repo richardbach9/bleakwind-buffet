@@ -7,7 +7,7 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
@@ -17,6 +17,48 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             AretinoAppleJuice aaj = new AretinoAppleJuice();
             Assert.IsAssignableFrom<IOrderItem>(aaj);
+        }
+        [Fact]
+        public void SizeChangeShouldTriggerPropertyChange()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aaj, "Size", () =>
+            {
+                aaj.Size = Size.Medium;
+            });
+        }
+        [Fact]
+        public void IceChangeShouldTriggerPropertyChange()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aaj, "Ice", () =>
+            {
+                aaj.Ice = false;
+            });
+        }
+        [Fact]
+        public void CaloriesChangeShouldTriggerPropertyChange()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aaj, "Calories", () =>
+            {
+                aaj.Calories = 0;
+            });
+        }
+        [Fact]
+        public void PriceChangeShouldTriggerPropertyChange()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aaj, "Price", () =>
+            {
+                aaj.Price = 0;
+            });
+        }
+        [Fact]
+        public void ShouldBeINotifyPropertyChanged()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(aaj);
         }
         [Fact]
         public void ShouldBeADrink()
