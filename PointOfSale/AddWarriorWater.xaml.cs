@@ -22,14 +22,23 @@ namespace PointOfSale
     /// </summary>
     public partial class AddWarriorWater : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddWarriorWater(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddWarriorWater(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
+            orderList = ol;
+        }
+        public AddWarriorWater(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
             orderList = ol;
         }
         /// <summary>
@@ -47,7 +56,12 @@ namespace PointOfSale
             else if (radioLarge.IsChecked == true) ww.Size = BleakwindBuffet.Data.Enums.Size.Large;
             if (checkIce.IsChecked == true) ww.Ice = true;
             else ww.Ice = false;
-            order.Add(ww);
+            if (combo != null)
+            {
+                combo.Drink = ww;
+                order.Add(combo);
+            }
+            else order.Add(ww);
             orderList.Totals();
             orderList.Order();
             b.Child = new MenuSelection(order, b, orderList);

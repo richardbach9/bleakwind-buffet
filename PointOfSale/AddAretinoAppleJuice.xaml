@@ -31,7 +31,7 @@
         <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center" FontWeight="Bold" FontSize="15" >Customize Aretino Apple Juice</TextBlock>
         <GroupBox Grid.Column="1" Grid.Row="3" Grid.RowSpan="3">
             <StackPanel Margin="10">
-                <RadioButton Name="radioSmall" Foreground="White" FontSize="20" >Small</RadioButton>
+                <RadioButton IsChecked =" True" Name="radioSmall" Foreground="White" FontSize="20" >Small</RadioButton>
                 <RadioButton Name="radioMedium" Foreground="White" FontSize="20" >Medium</RadioButton>
                 <RadioButton Name="radioLarge" Foreground="White" FontSize="20" >Large</RadioButton>
             </StackPanel>

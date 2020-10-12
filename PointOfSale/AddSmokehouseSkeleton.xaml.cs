@@ -21,12 +21,22 @@ namespace PointOfSale
     /// </summary>
     public partial class AddSmokehouseSkeleton : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddSmokehouseSkeleton(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddSmokehouseSkeleton(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
+            order = list;
+            b = mw;
+            orderList = ol;
+            DataContext = new SmokehouseSkeleton();
+        }
+        public AddSmokehouseSkeleton(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             order = list;
             b = mw;
             orderList = ol;
@@ -42,10 +52,20 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             SmokehouseSkeleton ss = DataContext as SmokehouseSkeleton;
-            order.Add(ss);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = ss;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(ss);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

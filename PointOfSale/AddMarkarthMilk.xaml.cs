@@ -22,15 +22,25 @@ namespace PointOfSale
     /// </summary>
     public partial class AddMarkarthMilk : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddMarkarthMilk(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo;
+        public AddMarkarthMilk(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new MarkarthMilk();
+        }
+        public AddMarkarthMilk(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            orderList = ol;
+            order = list;
             DataContext = new MarkarthMilk();
         }
         /// <summary>
@@ -46,7 +56,12 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) mm.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(mm);
+            if (combo != null)
+            {
+                combo.Drink = mm;
+                order.Add(combo);
+            }
+            else order.Add(mm);
             orderList.Totals();
             orderList.Order();
             b.Child = new MenuSelection(order, b, orderList);

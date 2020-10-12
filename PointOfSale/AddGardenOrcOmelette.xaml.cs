@@ -21,15 +21,25 @@ namespace PointOfSale
     /// </summary>
     public partial class AddGardenOrcOmelette : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddGardenOrcOmelette(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddGardenOrcOmelette(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new GardenOrcOmelette();
+        }
+        public AddGardenOrcOmelette(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            orderList = ol;
+            order = list;
             DataContext = new GardenOrcOmelette();
         }
         /// <summary>
@@ -42,10 +52,20 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             GardenOrcOmelette goo = DataContext as GardenOrcOmelette;
-            order.Add(goo);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = goo;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(goo);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

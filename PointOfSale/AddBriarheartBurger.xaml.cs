@@ -23,11 +23,21 @@ namespace PointOfSale
     public partial class AddBriarheartBurger : UserControl
     {
         Border b;
-        List<IOrderItem> order;
+        Order order;
         OrderList orderList;
-        public AddBriarheartBurger(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddBriarheartBurger(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
+            order = list;
+            b = mw;
+            orderList = ol;
+            DataContext = new BriarheartBurger();
+        }
+        public AddBriarheartBurger(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             order = list;
             b = mw;
             orderList = ol;
@@ -43,10 +53,21 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             BriarheartBurger bb = DataContext as BriarheartBurger;
-            order.Add(bb);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = bb;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(bb);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
+            
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

@@ -21,14 +21,23 @@ namespace PointOfSale
     /// </summary>
     public partial class AddVokunSalad : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddVokunSalad(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddVokunSalad(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
+            orderList = ol;
+        }
+        public AddVokunSalad(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
             orderList = ol;
         }
         /// <summary>
@@ -44,10 +53,20 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) vs.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) vs.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) vs.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(vs);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Side = vs;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(vs);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

@@ -21,14 +21,24 @@ namespace PointOfSale
     /// </summary>
     public partial class AddDoubleDraugr : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddDoubleDraugr(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddDoubleDraugr(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
+            orderList = ol;
+            DataContext = new DoubleDraugr();
+        }
+        public AddDoubleDraugr(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
             orderList = ol;
             DataContext = new DoubleDraugr();
         }
@@ -42,10 +52,20 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             DoubleDraugr dd = DataContext as DoubleDraugr;
-            order.Add(dd);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = dd;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(dd);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

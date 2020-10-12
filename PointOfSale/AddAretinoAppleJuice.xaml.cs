@@ -23,19 +23,28 @@ namespace PointOfSale
     /// </summary>
     public partial class AddAretinoAppleJuice : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-
+        Combo combo = null;
         /// <summary>
         /// Constructor for the AddAretinoAppleJuice user control
         /// </summary>
         /// <param name="list">List containing all menu items selected by the user</param>
         /// <param name="mw">Border from the MainWindow enabling it to be changed from separate user controls</param>
         /// <param name="ol">OrderList instantiation allowing it to be edited from separate user controls</param>
-        public AddAretinoAppleJuice(List<IOrderItem> list, Border mw, OrderList ol)
+        public AddAretinoAppleJuice(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
+            order = list;
+            b = mw;
+            orderList = ol;
+            DataContext = new AretinoAppleJuice();
+        }
+        public AddAretinoAppleJuice(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             order = list;
             b = mw;
             orderList = ol;
@@ -54,7 +63,12 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) aaj.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(aaj);
+            if(combo!=null)
+            {
+                combo.Drink = aaj;
+                order.Add(combo);
+            }    
+            else order.Add(aaj);
             orderList.Totals();
             orderList.Order();
             b.Child = new MenuSelection(order, b, orderList);

@@ -22,15 +22,25 @@ namespace PointOfSale
     /// </summary>
     public partial class AddSailorSoda : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddSailorSoda(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddSailorSoda(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
             orderList = ol;
+            DataContext = new SailorSoda();
+        }
+        public AddSailorSoda(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            orderList = ol;
+            order = list;
             DataContext = new SailorSoda();
         }
         /// <summary>
@@ -52,7 +62,12 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) ss.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(ss);
+            if (combo != null)
+            {
+                combo.Drink = ss;
+                order.Add(combo);
+            }
+            else order.Add(ss);
             orderList.Totals();
             orderList.Order();
             b.Child = new MenuSelection(order, b, orderList);

@@ -21,14 +21,24 @@ namespace PointOfSale
     /// </summary>
     public partial class AddPhillyPoacher : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddPhillyPoacher(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddPhillyPoacher(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
+            orderList = ol;
+            DataContext = new PhillyPoacher();
+        }
+        public AddPhillyPoacher(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
             orderList = ol;
             DataContext = new PhillyPoacher();
         }
@@ -42,10 +52,20 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             PhillyPoacher pp = DataContext as PhillyPoacher;
-            order.Add(pp);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = pp;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(pp);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

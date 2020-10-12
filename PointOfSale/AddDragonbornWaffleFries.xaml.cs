@@ -22,16 +22,26 @@ namespace PointOfSale
     /// </summary>
     public partial class AddDragonbornWaffleFries : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddDragonbornWaffleFries(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddDragonbornWaffleFries(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
             orderList = ol;
         }
+        public AddDragonbornWaffleFries(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
+            orderList = ol;
+        }
+
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
         /// menu item's properties before adding it to a list and modifying the orderList user control. Sets the MenuSelection
@@ -45,10 +55,20 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) dwf.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) dwf.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) dwf.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(dwf);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Side = dwf;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectDrink(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(dwf);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

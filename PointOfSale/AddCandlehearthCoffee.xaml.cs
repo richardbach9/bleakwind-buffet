@@ -22,12 +22,22 @@ namespace PointOfSale
     /// </summary>
     public partial class AddCandlehearthCoffee : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddCandlehearthCoffee(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddCandlehearthCoffee(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
+            order = list;
+            b = mw;
+            orderList = ol;
+            DataContext = new CandlehearthCoffee();
+        }
+        public AddCandlehearthCoffee(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             order = list;
             b = mw;
             orderList = ol;
@@ -46,7 +56,12 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) cc.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(cc);
+            if (combo != null)
+            {
+                combo.Drink = cc;
+                order.Add(combo);
+            }
+            else order.Add(cc);
             orderList.Totals();
             orderList.Order();
             b.Child = new MenuSelection(order, b, orderList);

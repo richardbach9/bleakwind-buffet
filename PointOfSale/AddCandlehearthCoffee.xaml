@@ -37,7 +37,7 @@
             </StackPanel>
         </GroupBox>
         <CheckBox IsChecked="{Binding Path=Ice}" Name="checkIce" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="20" >Ice</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Cream}" Name="checkRoomForCream" Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="20" >Cream</CheckBox>
+        <CheckBox IsChecked="{Binding Path=RoomforCream}" Name="checkRoomForCream" Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="20" >Cream</CheckBox>
         <CheckBox IsChecked="{Binding Path=Decaf}" Name="checkDecaf" Grid.Row="8" Grid.Column="1" Foreground="White" FontSize="20" >Decaf</CheckBox>
         <Button Click ="Cancel" Name="buttonCancel" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="1" Margin="16,5">Cancel</Button>
         <Button Click ="Done" Name="buttonDone" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="11" Grid.Column="3" Margin="16,5">Done</Button>

@@ -39,12 +39,12 @@
         <GroupBox Grid.Column="1" Grid.Row="3" Grid.RowSpan="7">
             <StackPanel Margin="10">
 
-                <RadioButton IsChecked="True" Name="radioCherry" Foreground="White" FontSize="20" >Cherry</RadioButton>
-                <RadioButton IsChecked="False" Name="radioBlackBerry" Foreground="White" FontSize="20" >Blackberry</RadioButton>
-                <RadioButton Name="radioGrapefruit" Foreground="White" FontSize="20" >Grapefruit</RadioButton>
-                <RadioButton Name="radioLemon" Foreground="White" FontSize="20" >Lemon</RadioButton>
-                <RadioButton Name="radioPeach" Foreground="White" FontSize="20" >Peach</RadioButton>
-                <RadioButton Name="radioWatermelon" Foreground="White" FontSize="20" >Watermelon</RadioButton>
+                <RadioButton IsChecked="True" Name="radioCherry" Foreground="White" FontSize="15" >Cherry</RadioButton>
+                <RadioButton IsChecked="False" Name="radioBlackBerry" Foreground="White" FontSize="15" >Blackberry</RadioButton>
+                <RadioButton Name="radioGrapefruit" Foreground="White" FontSize="15" >Grapefruit</RadioButton>
+                <RadioButton Name="radioLemon" Foreground="White" FontSize="15" >Lemon</RadioButton>
+                <RadioButton Name="radioPeach" Foreground="White" FontSize="15" >Peach</RadioButton>
+                <RadioButton Name="radioWatermelon" Foreground="White" FontSize="15" >Watermelon</RadioButton>
             </StackPanel>
         </GroupBox>
         <CheckBox IsChecked="{Binding Path=Ice}" Name="checkIce" Grid.Row="6" Grid.Column="2" Foreground="White" FontSize="20" >Ice</CheckBox>

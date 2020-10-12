@@ -40,5 +40,6 @@
         <Button Click="Add" Name="buttonGardenOrcOmelette" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="6" Grid.Column="1" Height="55" Width="175">Garden Orc Omelette</Button>
         <Button Click="Add" Name="buttonWarriorWater" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="6" Grid.Column="2" Height="55" Width="175">Warrior Water</Button>
         <Button Click="Add" Name="buttonThugsTBone" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="7" Grid.Column="1" Height="55" Width="175">Thugs T-Bone</Button>
+        <Button Click="Combo" Name="buttonCombo" Foreground="White" Background="Black" BorderBrush="White" Grid.Row="7" Grid.Column="3" Height="55" Width="175">Build a combo</Button>
     </Grid>
 </UserControl>

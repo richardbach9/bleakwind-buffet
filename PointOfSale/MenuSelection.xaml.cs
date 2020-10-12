@@ -30,14 +30,14 @@ namespace PointOfSale
     {
         Border mw;
         OrderList orderList;
-        List<IOrderItem> order;
+        Order order;
         /// <summary>
         /// The Constructor for the MenuSelection User Control
         /// </summary>
         /// <param name="list">A list containing the menu items selected by the user</param>
         /// <param name="b">The border from the MainWindow that displays various menus</param>
         /// <param name="ol">An instantiation of the ordered list user control in order to modify it from within other user controls</param>
-        public MenuSelection(List<IOrderItem> list, Border b, OrderList ol)
+        public MenuSelection(Order list, Border b, OrderList ol)
         {
             InitializeComponent();
             order = list;
@@ -103,6 +103,10 @@ namespace PointOfSale
                     mw.Child = new AddWarriorWater(order, mw, orderList);
                     break;
             }
+        }
+        void Combo(object sender, RoutedEventArgs e)
+        {
+            mw.Child = new CreateCombo(order, new Combo(), mw, orderList);
         }
     }
 }

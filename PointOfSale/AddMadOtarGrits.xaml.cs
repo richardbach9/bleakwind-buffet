@@ -22,13 +22,21 @@ namespace PointOfSale
     /// </summary>
     public partial class AddMadOtarGrits : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddMadOtarGrits(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddMadOtarGrits(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
+            b = mw;
+            orderList = ol;
+        }
+        public AddMadOtarGrits(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             b = mw;
             orderList = ol;
         }
@@ -45,10 +53,20 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) mog.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) mog.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) mog.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(mog);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Side = mog;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectDrink(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(mog);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

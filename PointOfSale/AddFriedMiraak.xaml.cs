@@ -22,17 +22,25 @@ namespace PointOfSale
     /// </summary>
     public partial class AddFriedMiraak : UserControl
     {
-        List<IOrderItem> order = new List<IOrderItem>();
+        Order order;
         Border b;
         OrderList orderList;
-        public AddFriedMiraak(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddFriedMiraak(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
             b = mw;
             orderList = ol;
         }
-
+        public AddFriedMiraak(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            b = mw;
+            order = list;
+            orderList = ol;
+        }
         /// <summary>
         /// Checks each element on the user control and modifies their respective variables to match in the
         /// menu item's properties before adding it to a list and modifying the orderList user control. Sets the MenuSelection
@@ -46,10 +54,20 @@ namespace PointOfSale
             if (radioSmall.IsChecked == true) fm.Size = BleakwindBuffet.Data.Enums.Size.Small;
             else if (radioMedium.IsChecked == true) fm.Size = BleakwindBuffet.Data.Enums.Size.Medium;
             else if (radioLarge.IsChecked == true) fm.Size = BleakwindBuffet.Data.Enums.Size.Large;
-            order.Add(fm);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Side = fm;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectDrink(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(fm);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

@@ -22,13 +22,21 @@ namespace PointOfSale
     /// </summary>
     public partial class AddThugsTBone : UserControl
     {
-        List<IOrderItem> order;
+        Order order;
         Border b;
         OrderList orderList;
-        public AddThugsTBone(List<IOrderItem> list, Border mw, OrderList ol)
+        Combo combo = null;
+        public AddThugsTBone(Order list, Border mw, OrderList ol)
         {
             InitializeComponent();
             order = list;
+            b = mw;
+            orderList = ol;
+        }
+        public AddThugsTBone(Order list, Combo combo, Border mw, OrderList ol)
+        {
+            InitializeComponent();
+            this.combo = combo;
             b = mw;
             orderList = ol;
         }
@@ -42,10 +50,20 @@ namespace PointOfSale
         void Done(object sender, RoutedEventArgs e)
         {
             ThugsTBone ttb = new ThugsTBone();
-            order.Add(ttb);
-            orderList.Totals();
-            orderList.Order();
-            b.Child = new MenuSelection(order, b, orderList);
+            if (combo != null)
+            {
+                combo.Entree = ttb;
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new SelectSide(order, combo, b, orderList);
+            }
+            else
+            {
+                order.Add(ttb);
+                orderList.Totals();
+                orderList.Order();
+                b.Child = new MenuSelection(order, b, orderList);
+            }
         }
         /// <summary>
         /// Sets the MenuSelection border back to MenuSelection

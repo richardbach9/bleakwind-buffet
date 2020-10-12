@@ -25,7 +25,7 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<IOrderItem> list = new List<IOrderItem>();
+        Order list = new Order();
         OrderList order;
         MenuSelection menu;
         /// <summary>
