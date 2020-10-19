@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="PointOfSale.Cash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="650" Foreground="White" Background="Black" BorderBrush="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter0" Grid.Row="2" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter1" Grid.Row="3" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter2" Grid.Row="4" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter3" Grid.Row="5" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter4" Grid.Row="6" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter5" Grid.Row="7" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter6" Grid.Row="8" Grid.Column="1"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter7" Grid.Row="3" Grid.Column="4"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter8" Grid.Row="4" Grid.Column="4"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter9" Grid.Row="5" Grid.Column="4"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter10" Grid.Row="6" Grid.Column="4"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter11" Grid.Row="7" Grid.Column="4"></local:Counter>
+        <local:Counter Pick="OnCounterPicked" x:Name="Counter12" Grid.Row="8" Grid.Column="4"></local:Counter>
+        <TextBlock Grid.Row="1" Grid.Column="3" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="4" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------</TextBlock>
+        <Button Grid.Row="1" Grid.Column="5" FontSize="15" Background="Black" Foreground="White" BorderBrush="White" Height="40" Width="95" Click="FinalizeTransaction">Finalize Sale</Button>
+        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------From Customer</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------Give As Change</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------Paper Bills</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$100</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$50</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$20</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$10</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$5</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$2</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$1</TextBlock>
+        <TextBlock Name="Change100" Grid.Row="2" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change50" Grid.Row="3" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change20" Grid.Row="4" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change10" Grid.Row="5" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change5" Grid.Row="6" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change2" Grid.Row="7" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change1" Grid.Row="8" Grid.Column="2" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="4" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------From Customer</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------Give As Change</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------Coins</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------ $1</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$0.50</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$0.25</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$0.10</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$0.05</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="3" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------$0.01</TextBlock>
+        <TextBlock Name="Change01" Grid.Row="3" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change05" Grid.Row="4" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change025" Grid.Row="5" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change010" Grid.Row="6" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change005" Grid.Row="7" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Name="Change001" Grid.Row="8" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow">------------------ 0</TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="0" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------ Total Sale</TextBlock>
+        <TextBlock Name="total" Grid.Row="9" Grid.Column="1" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="2" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------ Amount Due</TextBlock>
+        <TextBlock Name="Due" Grid.Row="9" Grid.Column="3" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="4" FontSize="15" TextAlignment="Right" TextWrapping="WrapWithOverflow">------------------ Change Owed</TextBlock>
+        <TextBlock Name="Owed" Grid.Row="9" Grid.Column="5" FontSize="15" TextAlignment="Center" TextWrapping="WrapWithOverflow" ></TextBlock>
+    </Grid>
+</UserControl>

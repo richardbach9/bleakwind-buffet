@@ -34,7 +34,7 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            order = new OrderList(list);
+            order = new OrderList(list, MenuSelectionComponent);
             menu = new MenuSelection(list, MenuSelectionComponent, order);
             MenuSelectionComponent.Child = menu;
             OrderComponent.Child = order;

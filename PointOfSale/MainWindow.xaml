@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Bleakwind Buffet Point of Sale" TextBlock.TextAlignment="Center" Background="Black" Height="450" Width="740">
+        Title="Bleakwind Buffet Point of Sale" TextBlock.TextAlignment="Center" Background="Black" Height="450" Width="820">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Border Name="MenuSelectionComponent" Grid.Column="0"/>

@@ -7,13 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="175" Background="Black" Foreground="White">
     <DockPanel>
+        <Button Click="Complete" DockPanel.Dock ="Top" Height="20"  Background="Black" Foreground="White" BorderBrush="White">Complete Order</Button>
+        <Button Click="Cancel" DockPanel.Dock ="Top" Height="20"  Background="Black" Foreground="White" BorderBrush="White">Cancel Order</Button>
         <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontWeight="Bold" FontSize="15" Height="10"></TextBlock>
         <TextBlock Name="OrderNumber" DockPanel.Dock="Top" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-        <TextBlock DockPanel.Dock="Bottom"/>
-        <TextBlock Name="TotalCost" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15">Total: $0.00</TextBlock>
-        <TextBlock Name ="Tax" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15">Tax: $0.00</TextBlock>
-        <TextBlock Name="subtotalCost" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15" Height="20">Subtotal: $0.00</TextBlock>
-        <Button Click="Remove" DockPanel.Dock ="Bottom" Height="20"  Background="Black" Foreground="White" BorderBrush="White">Remove</Button>
+        
+        
+        
+        <TextBlock Name="TotalCost" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15">Total: $0</TextBlock>
+        <TextBlock Name ="Tax" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15">Tax: $0</TextBlock>
+        <TextBlock Name="subtotalCost" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Bold" FontSize="15" Height="20">Subtotal: $0</TextBlock>
+        <Button Name ="removeButton" Click="Remove" DockPanel.Dock ="Bottom" Height="20"  Background="Black" Foreground="White" BorderBrush="White">Remove</Button>
         <TextBox Name ="removeTextBox" DockPanel.Dock="Bottom"></TextBox>
         <TextBlock Name ="orderString" DockPanel.Dock="Top" TextAlignment="Left" FontSize="11"></TextBlock>
     </DockPanel>

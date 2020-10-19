@@ -21,6 +21,7 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
+
 namespace PointOfSale
 {
     /// <summary>
@@ -28,18 +29,21 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderList : UserControl
     {
+        
         string orderStr;
-        Order order;
+        public Order order;
+        Border msc;
         /// <summary>
         /// The Constructor for the OrderList user control
         /// </summary>
         /// <param name="list">The List containing menu items selected by the user</param>
-        public OrderList(Order list)
+        public OrderList(Order list, Border b)
         {
             InitializeComponent();
             DataContext = list;
-            order = list;
+            order = DataContext as Order;
             OrderNumber.Text = "Order #" + order.Number;
+            msc = b;
         }
         /// <summary>
         /// Parses through the list and totals the prices of all the menu items. Also calculates the tax on the subtotal as well
@@ -74,13 +78,20 @@ namespace PointOfSale
                     }
                 }
             }
+            OrderNumber.Text = "Order #" + order.Number;
             orderString.Text = orderStr;
         }
+        /// <summary>
+        /// Removes an item from the order
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">event args</param>
         public void Remove(object sender, RoutedEventArgs e)
         {
+            int i;
             if(removeTextBox.Text.Length > 0)
             {
-                if(Int32.Parse(removeTextBox.Text) - 1 < order.list.Count)
+                if(Int32.TryParse(removeTextBox.Text, out i) && i - 1 < order.list.Count)
                 {
                     order.Remove(order.list[Int32.Parse(removeTextBox.Text) - 1]);
                 }    
@@ -88,6 +99,28 @@ namespace PointOfSale
             removeTextBox.Text = "";
             Order();
             Totals();
+            
+        }
+        /// <summary>
+        /// cancels the order and clears all items. 
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">event args</param>
+        public void Cancel(object sender, RoutedEventArgs e)
+        {
+            while(order.list.Count != 0)
+            {
+                order.Remove(order.list[0]);
+            }
+            Order();
+            Totals();
+            msc.Child = new MenuSelection(order, msc, this);
+            removeButton.IsEnabled = true;
+        }
+        public void Complete(object sender, RoutedEventArgs e)
+        {
+            removeButton.IsEnabled = false;
+            msc.Child = new CashOrCredit(order, msc, this);
         }
     }
 }
