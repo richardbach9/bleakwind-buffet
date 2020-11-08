@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Bleakwind Buffet";
+}
+
+<h1 class="display-4">Welcome</h1>
+<p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
+<p>You can combine an Entree, Side, and Drink in a Combo for a $1 discount!</p>
+<ul class="menu-list">
+    <li>
+        <h2>Entrees</h2>
+        @foreach (BleakwindBuffet.Data.Entrees.Entree entree in BleakwindBuffet.Data.Menu.Entrees())
+        {
+            <div class="menu-item">
+                <h3 class="name">@entree.ToString()</h3>
+                <div class="numbers">
+                    <div class="price">$@entree.Price</div>
+                    <div class="calories">@entree.Calories</div>
+                </div>
+            </div>
+        }
+    </li>
+    <li>
+        <h2>Sides</h2>
+        @foreach (BleakwindBuffet.Data.Sides.Side sides in BleakwindBuffet.Data.Menu.Sides())
+        {
+            <div class="menu-item">
+                <h3 class="name">@sides.ToString()</h3>
+                <div class="numbers">
+                    <div class="price">$@sides.Price</div>
+                    <div class="calories">@sides.Calories</div>
+                </div>
+            </div>
+        }
+    </li>
+    <li>
+        <h2>Drink</h2>
+        @foreach (BleakwindBuffet.Data.Drinks.Drink drinks in BleakwindBuffet.Data.Menu.Drinks())
+        {
+            <div class="menu-item">
+                <h3 class="name">@drinks.ToString()</h3>
+                <div class="numbers">
+                    <div class="price">$@drinks.Price</div>
+                    <div class="calories">@drinks.Calories</div>
+                </div>
+            </div>
+        }
+    </li>
+</ul>

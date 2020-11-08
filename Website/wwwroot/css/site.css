@@ -1,0 +1,43 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.menu-list {
+    padding:0;
+    margin:0;
+}
+.menu-item {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid gray;
+    list-style-type: none;
+    margin: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 50px;
+}
+.name {
+    font-size: larger;
+}
+.numbers
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.price, .calories {
+    border: 1px solid gray;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 60px;
+}
+.price::before {
+    content: "Price";
+    display: block;
+    font-size: 1rem;
+}
+
+.calories::before {
+    content: "Calories";
+    display: block;
+    font-size: 1rem;
+}
