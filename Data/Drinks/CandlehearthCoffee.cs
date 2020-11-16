@@ -152,5 +152,15 @@ namespace BleakwindBuffet.Data.Drinks
             sizeReturn += "Candlehearth Coffee";
             return sizeReturn;
         }
+        /// <summary>
+        /// returns a description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Fair trade, fresh ground dark roast coffee.";
+            }
+        }
     }
 }

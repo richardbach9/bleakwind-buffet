@@ -102,6 +102,17 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
+        /// returns a description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Fresh squeezed apple juice.";
+            }
+        }
+
+        /// <summary>
         /// overrides ToString() and returns the size and name of the drink
         /// </summary>
         /// <returns>the size and name of the drink</returns>

@@ -123,5 +123,15 @@ namespace BleakwindBuffet.Data.Drinks
             sizeReturn += "Markarth Milk";
             return sizeReturn;
         }
+        /// <summary>
+        /// returns a description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Hormone-free organic 2% milk.";
+            }
+        }
     }
 }

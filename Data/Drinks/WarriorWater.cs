@@ -108,5 +108,15 @@ namespace BleakwindBuffet.Data.Drinks
             sizeReturn += "Warrior Water";
             return sizeReturn;
         }
+        /// <summary>
+        /// returns a description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "It's water. Just water.";
+            }
+        }
     }
 }

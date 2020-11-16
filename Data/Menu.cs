@@ -362,7 +362,7 @@ namespace BleakwindBuffet.Data
                 return items;
             }
             List<IOrderItem> filtered = new List<IOrderItem>();
-            if(caloriesMin == null)
+            if ((caloriesMin == 0 || caloriesMin == null) && caloriesMax != 0)
             {
                 foreach(IOrderItem item in items)
                 {
@@ -390,12 +390,12 @@ namespace BleakwindBuffet.Data
             {
                 return items;
             }
-            if (priceMin == null && priceMin == null)
+            if (priceMin == null && priceMax == null)
             {
                 return items;
             }
             List<IOrderItem> filtered = new List<IOrderItem>();
-            if (priceMin == null)
+            if ((priceMin == 0 || priceMin == null) && priceMax != 0)
             {
                 foreach (IOrderItem item in items)
                 {

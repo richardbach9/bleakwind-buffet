@@ -29,5 +29,6 @@ namespace BleakwindBuffet.Data.Drinks
         public abstract List<string> SpecialInstructions { get; }
 
         public abstract event PropertyChangedEventHandler PropertyChanged;
+        public string Description { get; }
     }
 }

@@ -24,5 +24,6 @@ namespace BleakwindBuffet.Data
         List<string> SpecialInstructions { get; }
 
         event PropertyChangedEventHandler PropertyChanged;
+        string Description { get; }
     }
 }

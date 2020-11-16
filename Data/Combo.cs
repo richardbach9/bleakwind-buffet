@@ -205,6 +205,15 @@ namespace BleakwindBuffet.Data
             s += (" Combo Discount" + "\n" + "      - $1.00\n");
             return s;
         }
-
+        /// <summary>
+        /// returns a description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "A combination of a drink, side, and entree for a $1 discount.";
+            }
+        }
     }
 }

@@ -6,13 +6,8 @@
 <h1 class="display-4">Welcome</h1>
 <p>We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim. Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!</p>
 <p>You can combine an Entree, Side, and Drink in a Combo for a $1 discount!</p>
-<form id="menu-data">
-    <div id="search">
-        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-        <input type="submit" value="Search" />
-    </div>
-    
-    
+<form id="searchfilter">
+
     <div id="filters">
         <h4>Item Type</h4>
         <label>
@@ -44,22 +39,67 @@
 
         </div>
     </div>
+    <div id="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search" />
+    </div>
+</form>
+
+<form id="menu-data">
     <div id="results">
-        <ul class="menu-list">
-            <li>
-                <h1>Menu Results</h1>
-                @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.Items)
-                {
-                    <div class="menu-item">
-                        <h3 class="name">@item.ToString()</h3>
-                        <div class="numbers">
-                            <div class="price">$@item.Price</div>
-                            <div class="calories">@item.Calories</div>
-                        </div>
-                    </div>
-                }
-            </li>
-        </ul>
+        <div class="menu-list">
+                <div>
+                    <h1 class="headers">Entree Results</h1>
+                    @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.Items)
+                    {
+                        @if (item is BleakwindBuffet.Data.Entrees.Entree)
+                        {
+                            <div class="menu-item">
+                                <h3 class="name">@item.ToString()</h3>
+                                <h4 class="description">@item.Description</h4>
+                                <div class="numbers">
+                                    <div class="price">$@item.Price</div>
+                                    <div class="calories">@item.Calories</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div>
+                    <h1 class="headers">Side Results</h1>
+                    @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.Items)
+                    {
+                        @if (item is BleakwindBuffet.Data.Sides.Side)
+                        {
+                            <div class="menu-item">
+                                <h3 class="name">@item.ToString()</h3>
+                                <h4 class="description">@item.Description</h4>
+                                <div class="numbers">
+                                    <div class="price">$@item.Price</div>
+                                    <div class="calories">@item.Calories</div>
+                                </div>
+                            </div>
+                        } 
+                    }
+                </div>
+                <div>
+                    <h1 class="headers">Drink Results</h1>
+                    @foreach (BleakwindBuffet.Data.IOrderItem item in @Model.Items)
+                    {
+                        @if (item is BleakwindBuffet.Data.Drinks.Drink)
+                        {
+                            <div class="menu-item">
+                                <h3 class="name">@item.ToString()</h3>
+                                <h4 class="description">@item.Description</h4>
+                                <div class="numbers">
+                                    <div class="price">$@item.Price</div>
+                                    <div class="calories">@item.Calories</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+        </div>
     </div>
 </form>
 

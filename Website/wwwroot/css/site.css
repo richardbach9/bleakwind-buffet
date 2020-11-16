@@ -2,8 +2,10 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 .menu-list {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
 }
 .menu-item {
     display: flex;
@@ -15,8 +17,13 @@ for details on configuring this project to bundle and minify static web assets. 
     align-items: flex-start;
     min-height: 50px;
 }
+
 .name {
-    font-size: larger;
+    font-size: large;
+}
+.description
+{
+    font-size: small;
 }
 .numbers
 {
@@ -43,11 +50,15 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 form#menu-data
 {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: row;
 }
-
+#searchfilter
+{
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+}
 #search 
 {
     grid-column-start: 1;
@@ -55,17 +66,26 @@ form#menu-data
     text-align: right;
 }
 
-#filters 
+#filters
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
-
 #filters input[type=number]
 {
     width: 3rem;
 }
 
-#filterrs h4 {
+#filters h4 {
     margin-bottom: 0.2rem;
+}
+@media (max-width: 490px) {
+
+    .menu-list {
+        flex-direction: column;
+    }
+    .description
+    {
+        font-size: small;
+    }
 }
